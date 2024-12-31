@@ -10,9 +10,14 @@ typedef struct{
     nodes_t* tail;
 } list;
 
+
+list* makeList();
+
 char getHead(list* ptr);
 
-void getTail(list* ptr);
+char getTail(list* ptr);
 
 nodes_t* insertNode(list* ptr, char val);
+
+void printList(list* ptr);
 

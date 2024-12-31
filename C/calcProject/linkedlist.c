@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//what we need is for it to function like a queue right now...
+
 list* makeList(){
     list* ptr = (list*)(malloc(sizeof(list)));
     ptr->head = NULL;
@@ -20,13 +22,13 @@ char getHead(list* ptr){
     }
 }
 
-void getTail(list* ptr){
+char getTail(list* ptr){
     nodes_t* tail = ptr->tail;
     if(tail == NULL){
         return 0;
     }
     else{
-        return head->val;
+        return tail->val;
     }
 }
 
@@ -55,8 +57,26 @@ nodes_t* insertNode(list* ptr, char val){
         //insert it at the head... continue.
     }
     return 0;
-
 }
+
+char removeHead(list* ptr){
+    char returnedValue;
+    if(ptr == NULL){
+        return 0;
+    }
+    else{
+        nodes_t* head = ptr->head;
+        returnedValue = head->val;
+        ptr->head = head->next;
+        
+        free(head);
+        return returnedValue;
+    }
+    return 0;
+}
+
+
+
 
 void printList(list* ptr){
     nodes_t* current = ptr->head;
@@ -66,17 +86,13 @@ void printList(list* ptr){
     }
 }
 
-
-
-int main(){
-    list* newList = makeList();
-    //printf("%p\n", newList);
-    insertNode(newList, '3');
-    printf("%c\n\n", getHead(newList));
-    insertNode(newList, '4');
-    insertNode(newList, '5');
-    printf("%c\n\n", getHead(newList));
-    printList(newList);
-    return 0;
+void destroyList(list* ptr){
+    nodes_t* current = ptr->head;
+    while(current!=NULL){
+        nodes_t* next = current->next;
+        free(current);
+        current = next;
+    }
+    free(ptr);
 }
 
