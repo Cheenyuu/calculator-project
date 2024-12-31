@@ -1,0 +1,21 @@
+#target
+TARGET = calculator
+
+#sourcefiles
+SOURCES = calculator.c linkedlist.c
+
+#compiler and flags
+CC = gcc
+CFLAGS = -Wall -g
+
+#default target
+all: $(TARGET)
+
+$(TARGET): $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES) -o $(TARGET)
+
+#clean up build files
+clean: 
+	rm -f $(TARGET)
+
+	

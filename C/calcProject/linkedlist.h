@@ -1,4 +1,6 @@
-#include <stdio.h>
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
 typedef struct nodes{
     struct nodes* prev;
     struct nodes* next;
@@ -24,3 +26,5 @@ nodes_t* insertNode(list* ptr, char val);
 void printList(list* ptr);
 
 void destroyList(list* ptr);
+
+#endif
