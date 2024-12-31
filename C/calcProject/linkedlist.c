@@ -76,14 +76,18 @@ char removeHead(list* ptr){
 }
 
 
-
-
 void printList(list* ptr){
     nodes_t* current = ptr->head;
+    if(current == NULL){
+        printf("NO NODES PRESENT\n");
+        return;
+    }
+
     while(current!=NULL){
         printf("NODE: %c\n", current->val);
         current = current->next;
     }
+    printf("\n");
 }
 
 void destroyList(list* ptr){
@@ -94,5 +98,8 @@ void destroyList(list* ptr){
         current = next;
     }
     free(ptr);
+    ptr = NULL;
+
+    printf("pointer: %p\n", ptr);
 }
 

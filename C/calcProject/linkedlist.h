@@ -17,7 +17,10 @@ char getHead(list* ptr);
 
 char getTail(list* ptr);
 
+char removeHead(list* ptr);
+
 nodes_t* insertNode(list* ptr, char val);
 
 void printList(list* ptr);
 
+void destroyList(list* ptr);
