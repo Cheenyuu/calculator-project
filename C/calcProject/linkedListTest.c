@@ -43,14 +43,7 @@ int main(){
         return 0;
     }
 
-    //test destroy... (4)
+    //test destroy ~ if this fails, valgrind should catch...
     destroyList(newList);
-    if(newList!=NULL){
-        printf("FAILED TEST: 4\n");
-        return 0;
-    }
-    //failed test 4... why?
-
-
     return 0;
 }

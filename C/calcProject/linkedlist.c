@@ -98,8 +98,5 @@ void destroyList(list* ptr){
         current = next;
     }
     free(ptr);
-    ptr = NULL;
-
-    printf("pointer: %p\n", ptr);
 }
 
