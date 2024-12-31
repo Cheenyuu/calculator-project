@@ -4,6 +4,9 @@
 //testing of the functions within "linkedList"
 
 int main(){
+
+    //gcc linkedListTest.c linkedlist.c -o linkedListTest
+    //./linkedListTest
     list* newList = makeList();
     //printf("%p\n", newList);
     insertNode(newList, '3');
